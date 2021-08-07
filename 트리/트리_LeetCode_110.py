@@ -29,4 +29,4 @@ class Solution:
 
             return max(left, right)+1
 
-        return check(root) != -1
+        return check(root)!=-1
