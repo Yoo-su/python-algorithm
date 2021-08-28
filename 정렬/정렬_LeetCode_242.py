@@ -1,15 +1,4 @@
-def quickSort(nums):
-    if len(nums)<=1:
-        return nums
-
-    pivot=nums[0]
-    needToSort=nums[1:]
-
-    left=[x for x in needToSort if x<=pivot]
-    right=[x for x in needToSort if x>pivot]
-
-    return quickSort(left)+[pivot]+quickSort(right)
-
+from typing import List
 
 def quick(nums, left, right):
     if left>=right:
@@ -34,8 +23,13 @@ def quick(nums, left, right):
     quick(nums,left,r-1)
     quick(nums,r+1,right)
 
-    print(nums)
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        quick(nums,0,len(nums)-1)
 
-
-test=[1,2,0]
-quick(test,0,len(test)-1) 
+            
+sol=Solution()
+sol.sortColors([6,4,2,5,8])
