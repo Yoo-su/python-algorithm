@@ -16,7 +16,7 @@ def quick(nums, left, right):
         return
     
     pivot=nums[left]
-    print(pivot)
+
     l, r = left+1, right
 
     while l<r:
@@ -34,8 +34,7 @@ def quick(nums, left, right):
     quick(nums,left,r-1)
     quick(nums,r+1,right)
 
-    print(nums)
 
-
-test=[1,2,0]
+test=[3,9,4,6,5,4,2,11,1]
 quick(test,0,len(test)-1) 
+print(test)
