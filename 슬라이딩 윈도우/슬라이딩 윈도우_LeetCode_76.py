@@ -22,8 +22,12 @@ class Solution:
 
                 #이 조건을 통해 더 짧은 결과가 있으면 업데이트한다.
                 if not end or right-left<=end - start:
+                    #구간 업데이트
                     start,end=left,right
+                
                     need[s[left]]+=1
+
+                    #다음 탐색을 위해 +1
                     missing+=1
                     left+=1
         return s[start:end]
