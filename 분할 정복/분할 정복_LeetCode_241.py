@@ -1,0 +1,24 @@
+from typing import List
+
+class Solution:
+    def diffWaysToCompute(self, expression: str) -> List[int]:
+        def compute(left,right,op):
+            res=[]
+
+            for l in left:
+                for r in right:
+                    res.append(eval(str(l)+op+str(r)))
+            return res
+        
+        if expression.isdigit():
+            return [int(expression)]
+
+        res=[]
+        for index, value in enumerate(expression):
+            if value in "-+*":
+                left=self.diffWaysToCompute(expression[:index])
+                right=self.diffWaysToCompute(expression[index+1:])
+
+                res.extend(compute(left,right,value))
+            
+        return res
